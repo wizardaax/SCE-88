@@ -1,4 +1,4 @@
 # Validation Scope
 
-This directory defines structural conformance only.
-No execution, runtime validation, or automation is permitted.
+This directory defines structural conformance and houses executable validations to verify the architecture.
+Validations confirm isolation, ordering, and closure for SCE-88.

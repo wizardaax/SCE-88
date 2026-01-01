@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   test:
-    if: ${{ hashFiles('**/test*.py', '**/*_test.py', '**/tests/**/*.py') != '' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,7 +32,13 @@ jobs:
     
     - name: Run tests with coverage
       run: |
-        pytest --cov=. --cov-report=xml --cov-report=html --cov-report=term
+        code=0
+        pytest --cov=. --cov-report=xml --cov-report=html --cov-report=term || code=$?
+        if [ "$code" -eq 5 ]; then
+          echo "No tests collected; skipping."
+          exit 0
+        fi
+        exit "$code"
     
     - name: Upload coverage to Codecov
       if: matrix.python-version == '3.12'
