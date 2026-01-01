@@ -1,10 +1,10 @@
 # SCE-88 — State-Coherent Enforcement Architecture
 
-SCE-88 is a full deterministic AI system architecture with coherence enforced structurally.
-This repository is the single architectural authority for SCE-88.
-It defines four parallel, domain-isolated, complete 22-level AI stacks. Native intelligence, learning, adaptation, semantic processing, self-observation, and intent continuity reside primarily in Levels 17–22 of each domain stack. No executable AI implementation exists in this repository; safety and coherence are enforced by construction.
-
-The absence of executable code, runtime artifacts, or compiled logic here does not externalize or limit the AI capabilities defined by SCE-88. Those capabilities are inherent to the architecture and are realized only when the specification is instantiated.
+SCE-88 is a fully deterministic AI system architecture with coherence enforced structurally.
+This repository is the canonical specification for SCE-88.
+The architecture comprises four parallel, domain-isolated, complete 22-level AI stacks.
+Native intelligence, learning, adaptation, semantic processing, self-observation, and intent continuity reside in Levels 17–22 of each domain stack.
+Repository contents are specification artifacts only; no executable code, runtime artifacts, or compiled logic are included.
 
 This repository defines:
 - Four parallel, fully isolated operational domains (A–D), each implementing its own complete 22-level stack
@@ -12,8 +12,6 @@ This repository defines:
 - Closure-based compliance
 - Monotonic progression
 - Fail-closed invariant enforcement
-
-No executable behavior exists here.
 
 This repository is:
 - Canonical
