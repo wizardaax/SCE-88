@@ -6,8 +6,8 @@ It defines the full 22-level AI stack (including native intelligence, learning, 
 No execution, logic, or implementation is permitted; safety and coherence are enforced by construction.
 
 This repository defines:
-- 22 strictly ordered coherence levels
-- 4 fully isolated operational domains
+- Four parallel, fully isolated operational domains (A–D), each implementing its own complete 22-level stack
+- 22 strictly ordered coherence levels within each domain stack
 - Closure-based compliance
 - Monotonic progression
 - Fail-closed invariant enforcement
@@ -18,6 +18,8 @@ This repository is:
 - Canonical
 - Structural
 - Long-lived
+
+Coherence closure is evaluated across all four stacks simultaneously; levels do not cross domains.
 
 This repository is NOT:
 - An implementation
