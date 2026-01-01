@@ -16,4 +16,4 @@ This repository is:
 - Structural
 - Long-lived
 
-Coherence closure is evaluated across all four stacks simultaneously; levels do not cross domains; this is not a single 22-level stack spanning domains.
+Coherence closure is evaluated across all four stacks simultaneously; levels do not cross domains.

@@ -1,4 +1,4 @@
 # Validation Scope
 
-This directory defines structural conformance only.
-No execution, runtime validation, or automation is permitted.
+This directory defines architectural conformance validation.
+Validation artifacts support execution of architecture-level conformance checks.
