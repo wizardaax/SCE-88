@@ -1,0 +1,12 @@
+name: permissions
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Permissions locked."

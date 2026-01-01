@@ -1,42 +1,30 @@
 # SCE-88 — State-Coherent Enforcement Architecture
 
-SCE-88 is a deterministic safety and coherence enforcement architecture.
-It is a substrate, not an intelligence system.
+SCE-88 is a deterministic coherence enforcement architecture.
+It is a structural substrate, not an intelligence or execution system.
+This repository is the single architectural authority for SCE-88.
+It defines structure, invariants, and boundaries only.
+No execution, logic, or implementation is permitted.
 
-The purpose of SCE-88 is to bound, stabilize, and preserve correctness,
-continuity, and intent in complex autonomous and semi-autonomous systems.
+This repository defines:
+- 22 strictly ordered coherence levels
+- 4 fully isolated operational domains
+- Closure-based compliance
+- Monotonic progression
+- Fail-closed invariant enforcement
 
-SCE-88 does not implement:
-- intelligence
-- learning
-- planning
-- decision-making
-- policy or ethics
+No executable behavior exists here.
 
-Those functions may exist above SCE-88, but are explicitly constrained by it.
+This repository is:
+- Canonical
+- Structural
+- Long-lived
 
-## Core Properties
+This repository is NOT:
+- An implementation
+- A runtime
+- A simulator
+- A policy engine
+- A compliance automation system
 
-- Fixed depth: 22 ordered coherence levels
-- Domain isolation: 4 fully isolated operational domains
-- Total state space: 88 bounded cells (22 × 4)
-- Monotonic progression only
-- Explicit gating between domains
-- Fail-closed on invariant violation
-- Closure-induced coherence (not heuristic)
-
-## What This Repository Is
-
-- An architectural specification
-- A safety and coherence substrate definition
-- A formal boundary for future implementations
-
-## What This Repository Is Not
-
-- An AI framework
-- A robotics controller
-- A learning system
-- A governance or ethics model
-- An experimental sandbox
-
-No executable behavior is defined here.
+All behavior must live elsewhere.
