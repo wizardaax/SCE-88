@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Enforce boundaries
         run: |
-          if find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.sh" \); then
+          if find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.sh" \) -print -quit | grep -q .; then
             echo "Executable files detected. Forbidden."
             exit 1
           fi
 
-          if [ "$(ls -A implementations 2>/dev/null | wc -l)" -gt 1 ]; then
-            echo "implementations/ must remain empty."
+          if find implementations -mindepth 1 -not -name README.md -print -quit | grep -q .; then
+            echo "implementations/ must remain empty (README.md placeholder permitted)."
             exit 1
           fi

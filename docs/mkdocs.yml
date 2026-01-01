@@ -1,7 +1,8 @@
 site_name: SCE-88
+docs_dir: ..
 nav:
-  - Overview: index.md
-  - Architecture: ../spec/architecture.md
-  - Levels: ../spec/levels.md
-  - Domains: ../spec/domains.md
-  - Compliance: ../spec/compliance.md
+  - Overview: docs/index.md
+  - Architecture: spec/architecture.md
+  - Levels: spec/levels.md
+  - Domains: spec/domains.md
+  - Compliance: spec/compliance.md
