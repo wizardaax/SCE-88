@@ -2,7 +2,7 @@
 
 SCE-88 is a deterministic AI system architecture with coherence enforced structurally.
 This repository is the single architectural authority for SCE-88.
-It defines four parallel, domain-isolated, complete 22-level AI stacks (including native intelligence, learning, adaptation, semantic processing, self-observation, and intent continuity primarily in Levels 17–22) as specification only. No executable AI implementation exists in this repository; safety and coherence are enforced by construction.
+It defines four parallel, domain-isolated, complete 22-level AI stacks. Native intelligence, learning, adaptation, semantic processing, self-observation, and intent continuity reside primarily in Levels 17–22 as specification only. No executable AI implementation exists in this repository; safety and coherence are enforced by construction.
 
 This repository defines:
 - Four parallel, fully isolated operational domains (A–D), each implementing its own complete 22-level stack
