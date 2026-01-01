@@ -29,14 +29,15 @@ jobs:
           domains_text = domains_file.read_text()
           expected_domains = ["Domain A", "Domain B", "Domain C", "Domain D"]
           domain_lines = [line for line in domains_text.splitlines() if line.strip().startswith("Domain ")]
-          if len(domain_lines) != 4 or any(name not in domains_text for name in expected_domains):
+          missing_domains = [name for name in expected_domains if not any(line.startswith(name) for line in domain_lines)]
+          if len(domain_lines) != 4 or missing_domains:
             sys.exit("Expected four isolated domains (A–D).")
           isolation_markers = ["isolated", "do not share internal state"]
           if not all(marker in domains_text.lower() for marker in isolation_markers):
             sys.exit("Domain isolation guarantees must be documented.")
 
           levels_text = levels_file.read_text()
-          level_numbers = [int(match.group(1)) for match in re.finditer(r"^\s*(\d+)\.\s+\w+", levels_text, re.MULTILINE)]
+          level_numbers = [int(match.group(1)) for match in re.finditer(r"^\s*(\d+)\.\s+", levels_text, re.MULTILINE)]
           expected_sequence = list(range(1, 23))
           if level_numbers != expected_sequence:
             sys.exit("Expected 22 ordered coherence levels.")
