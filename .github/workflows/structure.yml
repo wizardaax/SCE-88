@@ -36,7 +36,7 @@ jobs:
             sys.exit("Domain isolation guarantees must be documented.")
 
           levels_text = levels_file.read_text()
-          level_numbers = [int(match.group(1)) for match in re.finditer(r"^\\s*(\\d+)\\.", levels_text, re.MULTILINE)]
+          level_numbers = [int(match.group(1)) for match in re.finditer(r"^\s*(\d+)\.", levels_text, re.MULTILINE)]
           expected_sequence = list(range(1, 23))
           if level_numbers != expected_sequence:
             sys.exit("Expected 22 ordered coherence levels.")
