@@ -41,4 +41,6 @@ Each level:
 - Has defined failure modes
 - Has strict ordering constraints
 
+Levels 17–22 form the native intelligence and continuity band of the architecture, providing bounded semantic processing, learning, adaptation, self-observation, and intent continuity within the coherence stack.
+
 ---
