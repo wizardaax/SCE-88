@@ -17,7 +17,7 @@ jobs:
             exit 1
           fi
 
-          if find implementations -mindepth 1 -not -name README.md -print -quit | grep -q .; then
+          if [ -d implementations ] && find implementations -mindepth 1 -not -name README.md -print -quit | grep -q .; then
             echo "implementations/ must remain empty (README.md placeholder permitted)."
             exit 1
           fi
