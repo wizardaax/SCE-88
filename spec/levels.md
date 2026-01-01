@@ -39,6 +39,6 @@ VI. Coherence and Persistence
 Each level:
 - Has explicit invariants
 - Has defined failure modes
-- Cannot be skipped
+- Has strict ordering constraints
 
 ---

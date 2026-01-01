@@ -17,7 +17,17 @@ jobs:
             exit 1
           fi
 
-          if [ -d implementations ] && find implementations -mindepth 1 -not -name README.md -print -quit | grep -q .; then
-            echo "implementations/ must remain empty (README.md placeholder permitted)."
-            exit 1
+          if [ -d implementations ]; then
+            shopt -s nullglob
+            for entry in implementations/*; do
+              name="$(basename "$entry")"
+              if [ "$name" = "README.md" ]; then
+                continue
+              fi
+              if [ -d "$entry" ] && [ -f "$entry/.git" ]; then
+                continue
+              fi
+              echo "implementations/ must remain empty (README.md placeholder or submodules only)."
+              exit 1
+            done
           fi
