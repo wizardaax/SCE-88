@@ -1,2 +1,2 @@
-Rules define architectural boundaries only.
-They must never encode behavior.
+Rules define architectural boundaries used by conformance validation.
+They capture enforceable architecture-level invariants.

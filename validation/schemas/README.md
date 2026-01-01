@@ -1,2 +1,2 @@
-Schemas define allowed structural forms only.
-They do not validate runtime behavior.
+Schemas define allowed structural forms for conformance evaluation.
+They support automated architecture-level validation.
