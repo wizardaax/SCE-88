@@ -5,9 +5,12 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
+permissions:
+  contents: read
 
 jobs:
   build:
+    if: ${{ hashFiles('pyproject.toml') != '' || hashFiles('setup.py') != '' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
