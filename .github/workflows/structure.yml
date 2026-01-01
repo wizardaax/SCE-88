@@ -6,28 +6,18 @@ permissions:
   contents: read
 
 jobs:
-  enforce:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Enforce boundaries
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependencies
         run: |
-          if find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.sh" \) -print -quit | grep -q .; then
-            echo "Executable files detected. Forbidden."
-            exit 1
-          fi
-
-          if [ -d implementations ]; then
-            shopt -s nullglob
-            for entry in implementations/*; do
-              name="$(basename "$entry")"
-              if [ "$name" = "README.md" ]; then
-                continue
-              fi
-              if [ -d "$entry" ] && [ -f "$entry/.git" ]; then
-                continue
-              fi
-              echo "implementations/ must remain empty (README.md placeholder or submodules only)."
-              exit 1
-            done
-          fi
+          python -m pip install --upgrade pip
+          pip install pytest
+      - name: Execute architectural validation
+        run: |
+          python -m validation.validator --ci
