@@ -1,84 +1,29 @@
-# SCE-88 Architecture
+# Architectural Definition
 
-## Overview
+SCE-88 defines a fixed, layered, domain-isolated state-space architecture.
 
-The State-Coherent Enforcement Architecture (SCE-88) provides a deterministic framework for maintaining state coherence across distributed system components.
+The architecture exists to ensure that any system built atop it:
+- remains physically bounded
+- progresses in a temporally ordered manner
+- preserves correctness under adaptation
+- maintains continuity across upgrades and replacement
 
-## Core Principles
+## Structural Definition
 
-### Deterministic Enforcement
+- 22 strictly ordered coherence levels
+- 4 isolated operational domains
+- Vertical expansion is prohibited
+- Horizontal replication is allowed only via domain isolation
 
-SCE-88 ensures predictable coherence behavior through:
+Each level introduces a unique failure mode and validation boundary.
+No level may be skipped or bypassed.
 
-- **State Verification**: Continuous validation of state consistency
-- **Enforcement Points**: Strategic placement of coherence checks
-- **Deterministic Resolution**: Predictable conflict resolution strategies
+## Closure Principle
 
-### Layered Approach
+System coherence is achieved only when all levels across all domains
+satisfy their closure conditions simultaneously.
 
-The architecture employs a hierarchical enforcement model with multiple levels (L0-L4), each providing different guarantees and performance characteristics.
-
-## System Components
-
-### Coherence Substrate
-
-The foundational layer that provides:
-
-- State tracking mechanisms
-- Coherence protocol implementation
-- Event ordering guarantees
-
-### Enforcement Engine
-
-Responsible for:
-
-- Policy evaluation
-- State validation
-- Conflict detection and resolution
-
-### Domain Controllers
-
-Domain-specific components that:
-
-- Apply domain rules
-- Manage local state
-- Interface with the enforcement engine
-
-## Architecture Diagram
-
-```
-┌─────────────────────────────────────────┐
-│         Application Layer               │
-├─────────────────────────────────────────┤
-│       Domain Controllers (L4)           │
-├─────────────────────────────────────────┤
-│     Enforcement Engine (L2-L3)          │
-├─────────────────────────────────────────┤
-│    Coherence Substrate (L0-L1)          │
-└─────────────────────────────────────────┘
-```
-
-## Integration Patterns
-
-### Synchronous Enforcement
-
-Immediate validation at operation boundaries.
-
-### Asynchronous Enforcement
-
-Background validation with eventual consistency guarantees.
-
-### Hybrid Enforcement
-
-Combination of synchronous and asynchronous approaches based on criticality.
-
-## Future Directions
-
-- Adaptive enforcement strategies
-- Machine learning-based anomaly detection
-- Extended domain support
-- Performance optimization frameworks
+Coherence is not a mode or feature.
+It is an emergent property enforced by structure.
 
 ---
-
-*This specification is under active development.*

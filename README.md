@@ -1,57 +1,42 @@
-# SCE-88
+# SCE-88 — State-Coherent Enforcement Architecture
 
-**State-Coherent Enforcement Architecture (SCE-88)**
+SCE-88 is a deterministic safety and coherence enforcement architecture.
+It is a substrate, not an intelligence system.
 
-A deterministic coherence enforcement substrate for distributed systems.
+The purpose of SCE-88 is to bound, stabilize, and preserve correctness,
+continuity, and intent in complex autonomous and semi-autonomous systems.
 
-## Overview
+SCE-88 does not implement:
+- intelligence
+- learning
+- planning
+- decision-making
+- policy or ethics
 
-SCE-88 is a framework designed to provide deterministic state coherence enforcement across distributed components. It establishes a rigorous architecture for maintaining consistency guarantees in complex systems through layered enforcement mechanisms.
+Those functions may exist above SCE-88, but are explicitly constrained by it.
 
-### Key Features
+## Core Properties
 
-- **Deterministic Enforcement**: Predictable coherence behavior across system boundaries
-- **Layered Architecture**: Hierarchical enforcement levels for flexible deployment
-- **Domain-Specific Controls**: Customizable coherence rules per system domain
-- **Security-First Design**: Built-in security and compliance mechanisms
+- Fixed depth: 22 ordered coherence levels
+- Domain isolation: 4 fully isolated operational domains
+- Total state space: 88 bounded cells (22 × 4)
+- Monotonic progression only
+- Explicit gating between domains
+- Fail-closed on invariant violation
+- Closure-induced coherence (not heuristic)
 
-## Scope
+## What This Repository Is
 
-The SCE-88 architecture covers:
+- An architectural specification
+- A safety and coherence substrate definition
+- A formal boundary for future implementations
 
-- State coherence protocols and enforcement mechanisms
-- Multi-level enforcement hierarchy (L0-L4)
-- Domain-specific coherence rules and policies
-- Security and compliance frameworks
-- Integration patterns for distributed systems
+## What This Repository Is Not
 
-## Status
+- An AI framework
+- A robotics controller
+- A learning system
+- A governance or ethics model
+- An experimental sandbox
 
-**Current Version**: 0.1.0 (Alpha)
-
-This project is in early development. The core architecture and specifications are being defined.
-
-### Roadmap
-
-- [x] Initial project structure
-- [ ] Core specification documents
-- [ ] Reference implementation
-- [ ] Test framework
-- [ ] Documentation site
-- [ ] v1.0 Release
-
-## Documentation
-
-Full documentation is available in the [docs/](docs/) directory and will be published at our documentation site.
-
-## Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## Security
-
-For security concerns, please see [SECURITY.md](SECURITY.md).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+No executable behavior is defined here.
