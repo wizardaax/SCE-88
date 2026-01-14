@@ -77,7 +77,7 @@ def test_validate_closure():
         name=validator.DOMAIN_NAMES[0],
         levels=[validator.Level(index=i + 1, name=name) for i, name in enumerate(validator.LEVELS)],
     )
-    domain.levels[17] = validator.Level(index=18, name="Coherence Closure")
+    domain.levels[18] = validator.Level(index=18, name="Coherence Closure")
     with pytest.raises(ValueError):
         domain.validate_closure()
     domain.levels = [level for level in domain.levels if level.name != "Coherence Closure"]
