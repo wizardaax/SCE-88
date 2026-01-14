@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Sequence
+from typing import List, Optional, Sequence
 import sys
 
 
@@ -103,12 +103,15 @@ def run_validation() -> None:
     unit.validate()
 
 
-def main(argv: Sequence[str] | None = None) -> int:
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    args = list(argv or [])
     try:
         run_validation()
         return 0
-    except Exception as exc:  # pragma: no cover - explicit CI surface
+    except Exception as exc:
         print(f"VALIDATION_FAILURE: {exc}", file=sys.stderr)
+        if "--ci" in args:
+            return 1
         return 1
 
 

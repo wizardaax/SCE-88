@@ -1,4 +1,4 @@
-from validation.validator import instantiate_unit, run_validation
+from validation.validator import instantiate_unit
 
 
 def build() -> None:
@@ -9,5 +9,4 @@ def build() -> None:
 
 
 if __name__ == "__main__":
-    run_validation()
     build()
