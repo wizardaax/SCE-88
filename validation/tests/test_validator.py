@@ -24,12 +24,12 @@ def test_validate_success():
 
 def test_isolation_enforced():
     shared_level = validator.Level(index=1, name=validator.LEVELS[0])
-    domains = [
-        validator.Domain(name=validator.DOMAIN_NAMES[0], levels=[shared_level] + [validator.Level(index=i + 2, name=name) for i, name in enumerate(validator.LEVELS[1:])]),
-        validator.Domain(name=validator.DOMAIN_NAMES[1], levels=[shared_level] + [validator.Level(index=i + 2, name=name) for i, name in enumerate(validator.LEVELS[1:])]),
-        validator.Domain(name=validator.DOMAIN_NAMES[2], levels=[validator.Level(index=i + 1, name=name) for i, name in enumerate(validator.LEVELS)]),
-        validator.Domain(name=validator.DOMAIN_NAMES[3], levels=[validator.Level(index=i + 1, name=name) for i, name in enumerate(validator.LEVELS)]),
-    ]
+    domains = []
+    for idx, name in enumerate(validator.DOMAIN_NAMES):
+        levels = [validator.Level(index=i + 1, name=level_name) for i, level_name in enumerate(validator.LEVELS)]
+        if idx in (0, 1):
+            levels[0] = shared_level
+        domains.append(validator.Domain(name=name, levels=levels))
     unit = validator.SCE88Unit(domains=domains)
     with pytest.raises(ValueError):
         unit.validate()
