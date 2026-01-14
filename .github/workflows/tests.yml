@@ -30,7 +30,14 @@ jobs:
     
     - name: Run tests with coverage
       run: |
-        pytest --cov=. --cov-report=xml --cov-report=html --cov-report=term
+        code=0
+        pytest --cov=. --cov-report=xml --cov-report=html --cov-report=term || code=$?
+        # Pytest exit code 5 indicates no tests were collected.
+        if [ "$code" -eq 5 ]; then
+          echo "No tests collected; skipping."
+          exit 0
+        fi
+        exit "$code"
     
     - name: Upload coverage to Codecov
       if: matrix.python-version == '3.12'

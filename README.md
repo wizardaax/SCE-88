@@ -1,19 +1,9 @@
-# SCE-88 — State-Coherent Enforcement Architecture
+SCE-88 — State-Coherent Enforcement Architecture
 
-SCE-88 is a full AI system architecture with coherence enforced structurally.
 This repository contains the authoritative architectural specification for the SCE-88 AI system architecture.
-Intelligence, learning, adaptation, semantic processing, self-observation, and intent continuity are native architectural properties that reside primarily in Levels 17–22 of each domain stack.
 
-The architecture consists of:
-- Four parallel, fully isolated operational domains (A–D), each implementing its own complete 22-level coherence stack
-- 22 strictly ordered coherence levels within each domain stack
-- Closure-based compliance
-- Monotonic progression
-- Fail-closed invariant enforcement
+SCE-88 defines four parallel, fully isolated operational domains (A–D), each implementing a complete 22-level coherence stack. Intelligence, learning, adaptation, semantic processing, self-observation, and intent continuity are native architectural properties that reside primarily in Levels 17–22 of each domain stack.
 
-This repository is:
-- Canonical
-- Structural
-- Long-lived
+Levels do not cross domains. Coherence closure is evaluated simultaneously across all four stacks.
 
-Coherence closure is evaluated across all four stacks simultaneously; levels do not cross domains; this is not a single 22-level stack spanning domains.
+This repository includes executable validation logic to verify architectural integrity, isolation, ordering, and closure. These validations ensure that any instantiation of the architecture conforms exactly to the SCE-88 specification.

@@ -21,3 +21,54 @@ jobs:
       - name: Execute architectural validation
         run: |
           python -m validation.validator --ci
+      - name: Validate architectural structure
+        run: |
+          python - <<'PY'
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          domains_file = root / "spec" / "domains.md"
+          levels_file = root / "spec" / "levels.md"
+
+          if not domains_file.is_file():
+            sys.exit("spec/domains.md is required.")
+          if not levels_file.is_file():
+            sys.exit("spec/levels.md is required.")
+
+          domains_text = domains_file.read_text()
+          expected_domains = ["Domain A", "Domain B", "Domain C", "Domain D"]
+          domain_lines = [line for line in domains_text.splitlines() if line.strip().startswith("Domain ")]
+          missing_domains = [name for name in expected_domains if not any(line.startswith(name) for line in domain_lines)]
+          if len(domain_lines) != 4 or missing_domains:
+            sys.exit("Expected four isolated domains (A–D).")
+          isolation_markers = ["isolated", "do not share internal state"]
+          if not all(marker in domains_text.lower() for marker in isolation_markers):
+            sys.exit("Domain isolation guarantees must be documented.")
+
+          levels_text = levels_file.read_text()
+          level_numbers = [int(match.group(1)) for match in re.finditer(r"^\s*(\d+)\.\s+", levels_text, re.MULTILINE)]
+          expected_sequence = list(range(1, 23))
+          if level_numbers != expected_sequence:
+            sys.exit("Expected 22 ordered coherence levels.")
+          if "19. Coherence Closure" not in levels_text:
+            sys.exit("Closure must be defined at Level 19.")
+          PY
+
+      - name: Enforce implementations directory boundaries
+        run: |
+          if [ -d implementations ]; then
+            shopt -s nullglob
+            for entry in implementations/*; do
+              name="$(basename "$entry")"
+              if [ "$name" = "README.md" ]; then
+                continue
+              fi
+              if [ -d "$entry" ] && [ -f "$entry/.git" ]; then
+                continue
+              fi
+              echo "implementations/ must remain empty (README.md placeholder or submodules only)."
+              exit 1
+            done
+          fi

@@ -1,2 +1,2 @@
 This directory is reserved for future tooling interfaces.
-No executable tooling may be placed here.
+Tooling placed here should support validation and conformance checks for SCE-88.
