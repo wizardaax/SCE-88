@@ -104,14 +104,11 @@ def run_validation() -> None:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    args = list(argv or [])
     try:
         run_validation()
         return 0
     except Exception as exc:
         print(f"VALIDATION_FAILURE: {exc}", file=sys.stderr)
-        if "--ci" in args:
-            return 1
         return 1
 
 
