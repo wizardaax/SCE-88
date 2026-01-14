@@ -7,7 +7,7 @@ Properties:
 - Fixed domain count (4)
 - No vertical extension
 - No cross-domain state sharing
-- Coherence closure evaluated simultaneously across all four domains
+- Coherence closure evaluated simultaneously across all four domains; levels never cross domains—this is not a single 22-level stack spanning domains
 
 Coherence, safety, and intelligence expression are enforced by structure alone; intelligence, learning, adaptation, semantic processing, self-observation, and intent continuity are bounded within Levels 17–22. The architecture is defined at specification level with executable validation logic to verify conformance, and behavior is realized only when an instantiation honors this structure.
 

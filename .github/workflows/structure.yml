@@ -6,10 +6,21 @@ permissions:
   contents: read
 
 jobs:
-  enforce:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+      - name: Execute architectural validation
+        run: |
+          python -m validation.validator --ci
       - name: Validate architectural structure
         run: |
           python - <<'PY'
