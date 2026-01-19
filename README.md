@@ -7,3 +7,5 @@ SCE-88 defines four parallel, fully isolated operational domains (A–D), each i
 Levels do not cross domains. Coherence closure is evaluated simultaneously across all four stacks.
 
 This repository includes executable validation logic to verify architectural integrity, isolation, ordering, and closure. These validations ensure that any instantiation of the architecture conforms exactly to the SCE-88 specification.
+
+![Dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen)
